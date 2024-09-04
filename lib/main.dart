@@ -1,4 +1,5 @@
 import 'package:cookbook/recipilist.dart';
+import 'package:cookbook/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: Recipilist(),
+      home: SplashScreen(),
     );
   }
 }
