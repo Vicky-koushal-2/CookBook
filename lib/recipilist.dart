@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cookbook/recipi_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -56,7 +57,7 @@ class _RecipilistState extends State<Recipilist> {
               subtitle: Text('Ready in ${recipe['readyInMinutes']} mins'),
               onTap: ()
               {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>RecipiDetail(recipe: recipe)));
               },
             );
           })

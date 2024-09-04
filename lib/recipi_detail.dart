@@ -11,27 +11,31 @@ class RecipiDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(recipe['title']),
       ),
-        body: Padding(padding:
-    EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.network(recipe['image']),
-              SizedBox(height: 16,),
-              Text('Ingredients:',style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold
+        body: SingleChildScrollView(
+          child: Padding(padding:
+              EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.network(recipe['image']),
+                SizedBox(height: 16,),
+                Text('Ingredients:',style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold
+                ),
+                ),
+                ...recipe['extendedIngredients']
+                .map<Widget>((ingredient)=>Text('-${ingredient['original']}'))
+                .toList(),
+                Text('Instructions:',style: TextStyle(
+                  fontWeight: FontWeight.bold,fontSize: 18,
+                ),),
+                Text(recipe['instructions'] ?? 'No instructions available.'),
+          
+              ],
+            ),
               ),
-              ),
-              ...recipe['extendedIngredients']
-              .map<Widget>((ingredient)=>Text('-${ingredient['original']}'))
-              .toList(),
-              Text('Instructions:',style: TextStyle(
-                fontWeight: FontWeight.bold,fontSize: 18,
-              ),)
-            ],
-          ),
-    ),
+        ),
 
     );
   }
